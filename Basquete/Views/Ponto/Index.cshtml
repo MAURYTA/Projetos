@@ -1,0 +1,53 @@
+﻿@model IEnumerable<Basquete.Models.Ponto>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.PontoTimeA)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PontoTimeB)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DataPartida)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Resultado)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.PontoTimeA)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PontoTimeB)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DataPartida)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Resultado)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.JogoID">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.JogoID">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.JogoID">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
